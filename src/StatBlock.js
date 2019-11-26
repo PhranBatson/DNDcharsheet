@@ -14,7 +14,17 @@ class StatBlock extends React.Component {
     }
 
     randomStat = (event) => {
-        var stat = Math.floor((Math.random()*6) + (Math.random()*6) + (Math.random()*6))
+        var statarr = [];
+
+        for (var i = 0; i < 4; i++) {
+            statarr[i] = Math.ceil(Math.random()*6);
+        }
+        console.log(statarr);
+
+        statarr.sort(function(a, b){return a - b});
+
+        var stat = statarr[1] + statarr[2] + statarr[3];
+
         var thisModifier = this.calcModifier(stat);
 
         this.props.statchange(this.props.name, stat, thisModifier);

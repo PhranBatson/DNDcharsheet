@@ -31,6 +31,7 @@ class App extends React.Component {
         break
       case "cha" : this.setState({cha: {base: base, modifier: modifier}})
         break
+      default :
     }
   }
   
