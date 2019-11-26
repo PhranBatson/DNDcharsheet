@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import StatBlock from "./StatBlock";
-import { NotifyReporter } from '@jest/reporters';
 
 class App extends React.Component {
 
