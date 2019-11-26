@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import StatBlock from "./StatBlock";
+import { NotifyReporter } from '@jest/reporters';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  statchange = (name) => {
+    console.log("A stat has changed in " + name);
+  }
+  
+  render(){
+    return (
+      <div className="App">
+        <h1>Character Sheet</h1>
+        <div className="name"></div>
+        <div className="statWrapper">
+          <StatBlock name="str" statchange={this.statchange} />
+          <StatBlock name="dex" statchange={this.statchange} />
+          <StatBlock name="con" statchange={this.statchange} />
+          <StatBlock name="int" statchange={this.statchange} />
+          <StatBlock name="wis" statchange={this.statchange} />
+          <StatBlock name="cha" statchange={this.statchange} />
+        </div>
+      </div>
+  );}
+
 }
 
 export default App;

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 80%;
+  margin: auto;
 }
 
 .App-logo {
@@ -19,4 +21,12 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.statbox {
+  display: flex;
+}
+
+.statname {
+  width: 6em;
 }
