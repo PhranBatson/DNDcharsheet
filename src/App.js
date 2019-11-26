@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Character Sheet</h1>
-        <div className="name"></div>
+        <div className="name"><textarea></textarea></div>
         <div className="statWrapper">
           <StatBlock name="str" statchange={this.statchange} />
           <StatBlock name="dex" statchange={this.statchange} />

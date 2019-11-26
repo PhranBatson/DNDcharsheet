@@ -13,8 +13,12 @@ class StatBlock extends React.Component {
         }
     }
 
+    calcModifier(stat) {
+        return Math.floor((stat - 10) / 2);
+    }
+
     updateStat = (event) => {
-        var thisModifier = Math.floor((event.target.value - 10) / 2);
+        var thisModifier = this.calcModifier(event.target.value);
 
         this.setState({
           base: event.target.value,
@@ -22,7 +26,17 @@ class StatBlock extends React.Component {
         });
 
         this.props.statchange(this.state.name);
-      }
+    }
+
+    randomStat = (event) => {
+        var stat = Math.floor((Math.random()*15) + 3)
+        var thisModifier = this.calcModifier(stat);
+
+        this.setState({
+            base : stat,
+            modifier: thisModifier
+        })
+    }
 
     render() {
         return(
@@ -30,6 +44,7 @@ class StatBlock extends React.Component {
             <div className="statname">{this.state.name}:</div>
             <div className="base"><textarea onChange={this.updateStat} value={this.state.base}/></div>
             <div className="modifier">{this.state.modifier}</div>
+            <div className="randombutt" onClick={this.randomStat}></div>
         </div>
     );}
 }
